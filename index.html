@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="light" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -72,13 +72,14 @@
                 distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum
                 is that it has a.</p>
         </div>
-        <div> <button class="text-xl font-bold text-white  py-4 px-8 rounded-xl bg-[#0E7A81] hover:bg-lime-500">View
+        <div> <button onclick="location.href='#main-section'"
+                class="text-xl font-bold text-white  py-4 px-8 rounded-xl bg-[#0E7A81] hover:bg-lime-500">View
                 More</button></div>
 
 
     </header>
     <div class="m-[50px] lg:w-7/12 md:w-10/12 w-11/12 mx-auto"><img src="images/pet.webp" alt=""></div>
-    <main class="text-center lg:w-10/12 md:w-10/12 w-11/12 mx-auto">
+    <main id="main-section" class="text-center lg:w-10/12 md:w-10/12 w-11/12 mx-auto">
         <div class="text-center lg:w-7/12 md:w-10/12 w-11/12 mx-auto">
             <h1 class="text-[40px] font-black mb-6">Adopt Your Best Friend</h1>
             <p class="text-base font-normal text-[#131313B2] mb-12">It is a long established fact that a reader will be
@@ -86,7 +87,8 @@
                 is that it has a.</p>
         </div>
         <!-- category buttons -->
-        <div class="mb-8 grid lg:grid-cols-4 gap-8 justify-between md:grid-cols-2 sm:text-center grid-cols-1 w-8/12 mx-auto lg:w-full md:w-full">
+        <div
+            class="mb-8 grid lg:grid-cols-4 gap-8 justify-between md:grid-cols-2 sm:text-center grid-cols-1 w-8/12 mx-auto lg:w-full md:w-full">
             <button
                 class="flex gap-4 items-center py-6  px-6 border-[3px] border-[#0E7A8126] rounded-2xl hover:rounded-full hover:bg-[#0E7A811A] hover:border-[#0E7A81] ">
                 <div>
@@ -356,12 +358,37 @@
                 </div>
             </button>
         </div>
-        <!-- short button here -->
+        <!-- short button here , this section will go dynamic-->
         <div class="flex items-center  justify-between mb-8">
             <h1 class="text-2xl font-black">Best Deal For you</h1>
-            <button class="text-xl font-bold text-white  py-4 px-8 rounded-xl bg-[#0E7A81] hover:bg-lime-500">Sort by Price</button>
+            <button class="text-xl font-bold text-white  py-4 px-8 rounded-xl bg-[#0E7A81] hover:bg-lime-500">Sort by
+                Price</button>
         </div>
-        
+        <!-- card section from here , this section will go dynamic-->
+        <section class="  flex justify-between gap-8">
+            <!-- left cards -->
+            <div class="w-3/4 flex gap-8">
+                <div class="card bg-base-100 w-96 shadow-sm rounded-xl">
+                    <figure class="px-5 pt-5">
+                        <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                            alt="Shoes" class="rounded-lg" />
+                    </figure>
+                    <div class="card-body items-start text-left">
+                        <h2 class="">Card Title</h2>
+                        <p>A card component has a figure, a body part, and inside body there are title and actions parts
+                        </p>
+                        <div class="card-actions">
+                            <button class="btn btn-primary">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            <!-- right cards -->
+            <div class="w-3/4 flex">
+                
+            </div>
+        </section>
     </main>
     <footer class="bg-black md:px-[50px] lg:px-[140px] py-[100px] flex flex-col md:flex-row lg:flex-row px-[40px]
     md:gap-0 lg:gap-0 gap-5 justify-between ">
