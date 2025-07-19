@@ -40,10 +40,6 @@ const loadCategoryPets = (name) => {
             .then(res => res.json())
             .then(data => {
 
-
-
-
-
                 allpetscard(data.data);
 
             })
@@ -66,8 +62,8 @@ const petLikebtns = (petID) => {
         const imageContainer = document.getElementById("card-container");
         imageContainer.classList.remove("hidden")
         const imgCard = document.createElement("div");
-        imgCard.innerHTML = 
-        `
+        imgCard.innerHTML =
+            `
 <img class="h-[124px] w-[124px] object-cover rounded-lg" src="${petData.image}" alt="">
 
         `;
@@ -79,10 +75,83 @@ const petLikebtns = (petID) => {
 
 // like button work end
 // modal details card
-const petCardDtails = () =>{
-console.log("clicked");
+const petCardDtails = (petID) => {
+    fetch(`https://openapi.programming-hero.com/api/peddy/pet/${petID}`)
+        .then(res => res.json())
+        .then(data => petCard(data.petData))
+        .catch(error => console.log("Api Failed"))
+
+    const petCard = (petData) => {
+        const modalContainer = document.getElementById("my_modal_5");
+        modalContainer.innerHTML = "";
+        const modalCard = document.createElement("div");
+        modalCard.innerHTML = `
+<div class="modal-box lg:w-[1000px] md:w-auto w-10/12 mx-auto ">
+            <img class="w-full object-cover rounded-lg mb-6" src="${petData.image}" alt="">
+            <h3 class="text-2xl font-bold text-black mb-4">${petData.pet_name}</h3>
+            <div class="grid grid-cols-2 mb-4">
+                <div class="flex gap-2">
+                    <img src="images/Frame.svg" alt="">
+                    <h1 class="font-normal text-base text-[#131313B2]">Breed: ${petData.breed}</h1>
+                </div>
+                <div class="flex gap-2">
+                    <img src="images/Frame (1).svg" alt="">
+                    <h1 class="font-normal text-base text-[#131313B2]">Birth: ${petData.date_of_birth}</h1>
+                </div>
+                <div class="flex gap-2">
+                    <img src="images/Frame (2).svg" alt="">
+                    <h1 class="font-normal text-base text-[#131313B2]">Gender: ${petData.gender}</h1>
+                </div>
+                <div class="flex gap-2">
+                    <img src="images/Frame (3).svg" alt="">
+                    <h1 class="font-normal text-base text-[#131313B2]">Price :${petData.price}$</h1>
+                </div>
+                <div class="flex gap-2">
+                    <img src="images/Frame (2).svg" alt="">
+                    <h1 class="font-normal text-base text-[#131313B2]">Vaccinated status:${petData.vaccinated_status}</h1>
+                </div>
+            </div>
+            <hr class="w-full h-px my-2 bg-[#1313131A] border-0 mb-4">
+            <p class="text-base font-semibold">Details Information</p>
+            <p class="font-normal text-base text-[#131313B2] mb-4">${petData.pet_details}
+            </p>
+            
+                <form method="dialog" class="w-full mx-auto">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button
+                        class=" py-[9px] w-full  text-lg font-bold rounded-lg border-[2px] border-[#0E7A8126] hover:bg-lime-100 hover:border-lime-500 text-[#0E7A81] ">Cancel
+                    </button>
+                </form>
+            
+        </div>
+
+        `;
+        modalContainer.append(modalCard);
+    };
 };
 // modal details card ends
+
+// Adopt button modal
+const adoptModalFunction = (time) => {
+    const modalContainer = document.getElementById("my_modal_6");
+    document.getElementById("action-btn").disabled = true ;
+      let value = 4;
+  const countdown = document.getElementById('countdown');
+
+  const interval = setInterval(() => {
+    value--;
+    countdown.setAttribute('style', `--value:${value}`);
+    countdown.innerText = value;
+
+    if (value <= 0) clearInterval(interval);
+  }, 1000);
+    setTimeout(() => {
+        
+        modalContainer.close();
+    }, 4000);
+}
+
+// Adopt button modal ends
 const allpetscard = (cardss) => {
 
     const petcardContainer = document.getElementById('pet-card-container');
@@ -138,8 +207,11 @@ const allpetscard = (cardss) => {
                             class=" px-[20px] py-[9px] rounded-lg border-[2px] border-[#0E7A8126] hover:bg-lime-100 hover:border-lime-500"><img
                                 src="images/like.svg" alt="" class="h-7 w-7 "></button>
                         <button
+                        <button onclick="my_modal_6.showModal() ; adoptModalFunction(4)"
                             class=" py-[9px] px-7 text-lg font-bold rounded-lg border-[2px] border-[#0E7A8126] hover:bg-lime-100 hover:border-lime-500 text-[#0E7A81]">Adopt</button>
-                        <button onclick="my_modal_5.showModal() ; petCardDtails() "
+                        <button 
+                        id="action-btn"
+                        onclick="my_modal_5.showModal() ; petCardDtails(${card.petId}) "
                             class=" py-[9px] px-7 text-lg font-bold rounded-lg border-[2px] border-[#0E7A8126] hover:bg-lime-100 hover:border-lime-500 text-[#0E7A81]">Details</button>
                     </div>
                 </div>
@@ -184,3 +256,4 @@ setTimeout(() => {
 
 allpets();
 allPetsCategory();
+

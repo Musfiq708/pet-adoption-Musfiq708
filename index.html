@@ -21,8 +21,6 @@
         }
 
         ;
-
-        
     </style>
 
 </head>
@@ -91,15 +89,7 @@
         <!-- category buttons -->
         <div id="category-btn-container"
             class="mb-8 grid lg:grid-cols-4  gap-8 justify-between md:grid-cols-2 sm:text-center grid-cols-1 w-8/12 mx-auto lg:w-full md:w-full ">
-            <!-- <button
-                class="flex gap-4 items-center py-6  px-6 border-[3px] border-[#0E7A8126] rounded-2xl hover:rounded-full hover:bg-[#0E7A811A] hover:border-[#0E7A81] ">
-                <div>
-                    <img src="" alt="">
-                </div>
-                <div>
-                    <h1 class="font-bold text-2xl">Birds</h1>
-                </div>
-            </button> -->
+
 
         </div>
         <!-- short button here , this section will go dynamic-->
@@ -283,25 +273,22 @@
         </div>
     </footer>
 
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle"></dialog>
+    <!-- Open the modal using ID.showModal() method -->
+
+    <dialog id="my_modal_6" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box text-center">
+            <img class="rounded-lg" src="images/Congo.jpg" alt="">
+            <h3 class="text-2xl font-bold my-5">
+                Adoption Process Completing
+            </h3>
+            <span class="countdown font-mono text-6xl ">
+                <span id="countdown" style="--value:4;">4</span>
+            </span>
+
+        </div>
+    </dialog>
     <script src="JS/index.js"></script>
 </body>
 
 </html>
-
-<!-- Open the modal using ID.showModal() method -->
-
-<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-    <div>
-        <div class="modal-box w-[700px] ">
-            <img class="w-full object-cover rounded-lg mb-6" src="images/pet-2.jpg" alt="">
-            <h3 class="text-lg font-bold">Hello!</h3>
-            <p class="py-4">Press ESC key or click the button below to close</p>
-            <div class="modal-action">
-                <form method="dialog">
-                    <!-- if there is a button in form, it will close the modal -->
-                    <button class="btn">Close</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</dialog>
